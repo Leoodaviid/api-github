@@ -38,7 +38,7 @@ export const Name = styled.h2`
   }
 `
 export const Inner = styled.div`
-  padding: 1rem;
+  padding: 1rem 0;
 
   @media screen and (max-width: ${({ theme }) => theme.breakPoints.md}) {
     display: none;
