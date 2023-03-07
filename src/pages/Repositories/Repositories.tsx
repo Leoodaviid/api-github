@@ -1,4 +1,6 @@
+import { Filter } from '../../components/Filter/Filter'
 import { Profile } from '../../components/Profile/Profile'
+import { Repository } from '../../components/Repository/Repository'
 import { Container, Sidebar, Main } from './styles'
 
 const Repositories = () => {
@@ -6,8 +8,11 @@ const Repositories = () => {
     <Container>
       <Sidebar>
         <Profile />
+        <Filter />
       </Sidebar>
-      <Main>Main</Main>
+      <Main>
+        <Repository />
+      </Main>
     </Container>
   )
 }

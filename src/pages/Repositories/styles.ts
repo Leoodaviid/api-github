@@ -18,13 +18,14 @@ export const Sidebar = styled.aside`
 export const Main = styled.section`
   width: 100%;
   max-height: 100vh;
-  padding: 2.5rem;
-  overflow-y: hidden;
+  padding: 2rem;
+  /* overflow-y: hidden; */
 
   @media screen and (max-width: ${({ theme }) => theme.breakPoints.md}) {
+    width: auto;
     height: 100%;
   }
   @media screen and (max-width: ${({ theme }) => theme.breakPoints.sm}) {
-    padding: 2.5rem 1.25rem;
+    padding: 1rem;
   }
 `
