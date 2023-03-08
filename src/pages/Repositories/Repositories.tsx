@@ -4,7 +4,7 @@ import { Profile } from '../../components/Profile/Profile'
 import { Repository } from '../../components/Repository/Repository'
 import { Container, Sidebar, Main } from './styles'
 import { RespositoriesProps } from '../../models/models'
-import { getLangsFrom } from '../../services/langRepositories'
+import { getLangsFrom } from '../../services/mainApi/langRepositories'
 
 const Repositories = () => {
   const [currentLanguage, setCurrentLanguage] = useState<string>()

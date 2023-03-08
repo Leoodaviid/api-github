@@ -1,5 +1,5 @@
-import { RespositoriesProps } from '../models/models'
-import { languageColors } from '../components/Helper/langColors'
+import { RespositoriesProps } from '../../models/models'
+import { languageColors } from '../../components/Helper/langColors'
 
 export const getLangsFrom = (repositories: RespositoriesProps[]) => {
   const languageCounts: { [key: string]: number } = {}
