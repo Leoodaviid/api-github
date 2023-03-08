@@ -3,38 +3,38 @@ import { UserProps } from '../../models/models'
 import { Container, Header, Avatar, Login, Name, Inner, Data } from './styles'
 
 interface ProfileProps {
-  user: UserProps
+  user?: UserProps
 }
 export const Profile = ({ user }: ProfileProps) => {
   return (
     <Container>
       <Header>
-        <Avatar src={user.avatar_url} />
-        <Login>{user.login}</Login>
-        <Name>{user.name}</Name>
+        <Avatar src={user?.avatar_url} />
+        <Login>{user?.login}</Login>
+        <Name>{user?.name}</Name>
       </Header>
       <Inner>
         <Data>
           <MdGroup size={20} />
-          {user.following}&nbsp;<i>seguidores</i>&nbsp;&middot;&nbsp;1{user.followers}&nbsp;
+          {user?.following}&nbsp;<i>seguidores</i>&nbsp;&middot;&nbsp;1{user?.followers}&nbsp;
           <i>seguindo</i>
         </Data>
-        {user.company && (
+        {user?.company && (
           <Data>
             <MdWork size={20} />
-            {user.company}
+            {user?.company}
           </Data>
         )}
-        {user.location && (
+        {user?.location && (
           <Data>
             <MdLocationCity size={20} />
-            {user.location}
+            {user?.location}
           </Data>
         )}
-        {user.blog && (
+        {user?.blog && (
           <Data>
             <MdLink size={20} />
-            <a href={`\\${user.blog}`}>{user.blog}</a>
+            <a href={`\\${user?.blog}`}>{user?.blog}</a>
           </Data>
         )}
       </Inner>
