@@ -77,13 +77,20 @@ const Repositories = () => {
       html_url: 'https://github.com/Leoodaviid/animate.css',
       language: 'css',
     },
+    {
+      id: 9,
+      name: 'repo 9',
+      description: 'descrição',
+      html_url: 'https://github.com/Leoodaviid/animate.css',
+      language: 'JavaScript',
+    },
   ]
 
   const languages = getLangsFrom(repositories)
 
   const onFilterClick = (language?: string) => {
     if (language === currentLanguage) {
-      setCurrentLanguage('')
+      setCurrentLanguage(undefined)
     } else {
       setCurrentLanguage(language)
     }
@@ -96,7 +103,7 @@ const Repositories = () => {
         <Filter languages={languages} currentLanguage={currentLanguage} onClick={onFilterClick} />
       </Sidebar>
       <Main>
-        <Repository repositories={repositories} />
+        <Repository repositories={repositories} currentLanguage={currentLanguage} />
       </Main>
     </Container>
   )

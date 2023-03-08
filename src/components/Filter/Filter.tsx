@@ -1,4 +1,4 @@
-import { Container, Selector, Cleaner } from './styles'
+import { Container, Selector } from './styles'
 
 interface FilterLanguageProps {
   languages: { name: string; count: number; color?: string }[]
@@ -10,7 +10,7 @@ export const Filter = ({ languages, currentLanguage, onClick }: FilterLanguagePr
     <Selector
       key={name.toLocaleLowerCase()}
       color={color}
-      className={currentLanguage === name ? 'selected' : ''}
+      className={currentLanguage === name ? 'selected' : undefined}
       onClick={() => onClick && onClick(name)}
     >
       <span>{name}</span>
@@ -18,10 +18,5 @@ export const Filter = ({ languages, currentLanguage, onClick }: FilterLanguagePr
     </Selector>
   ))
 
-  return (
-    <Container>
-      {selectors}
-      <Cleaner onClick={() => onclick && onClick()}>Limpar</Cleaner>
-    </Container>
-  )
+  return <Container>{selectors}</Container>
 }

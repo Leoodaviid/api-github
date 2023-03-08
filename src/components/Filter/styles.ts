@@ -43,19 +43,3 @@ export const Selector = styled.button`
     }
   }
 `
-export const Cleaner = styled.button`
-  background: transparent;
-  color: ${({ theme }) => theme.colors.white};
-  border: none;
-  text-align: left;
-  padding: 1rem;
-
-  &:hover {
-    color: rgba(255, 255, 255, 0.5);
-  }
-
-  @media screen and (max-width: ${({ theme }) => theme.breakPoints.md}) {
-    text-align: center;
-    padding: 0 1rem;
-  }
-`
