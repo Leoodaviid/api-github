@@ -12,6 +12,7 @@ export const languageColors: { [key: string]: string } = {
   go: '#72aed8',
   ruby: '#e74c3c',
   c: '#16a085',
+  shell: '#89e051',
   'c#': '#27ae60',
   'c++': '#7f8c8d',
 }

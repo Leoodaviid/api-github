@@ -19,50 +19,58 @@ const Repositories = () => {
 
   const repositories: RespositoriesProps[] = [
     {
+      id: 1,
       name: 'repo 1',
-      desciption: 'descrição',
+      description: 'descrição',
       html_url: 'https://github.com/Leoodaviid/animate.css',
       language: 'PHP',
     },
     {
+      id: 2,
       name: 'repo 2',
-      desciption: 'descrição',
+      description: 'descrição',
       html_url: 'https://github.com/Leoodaviid/animate.css',
       language: 'JavaScript',
     },
     {
+      id: 3,
       name: 'repo 3',
-      desciption: 'descrição',
+      description: 'descrição',
       html_url: 'https://github.com/Leoodaviid/animate.css',
       language: 'PHP',
     },
     {
+      id: 4,
       name: 'repo 4',
-      desciption: 'descrição',
+      description: 'descrição',
       html_url: 'https://github.com/Leoodaviid/animate.css',
       language: 'Ruby',
     },
     {
+      id: 5,
       name: 'repo 5',
-      desciption: 'descrição',
+      description: 'descrição',
       html_url: 'https://github.com/Leoodaviid/animate.css',
       language: 'TypeScript',
     },
     {
+      id: 6,
       name: 'repo 6',
-      desciption: 'descrição',
+      description: 'descrição',
       html_url: 'https://github.com/Leoodaviid/animate.css',
       language: 'TypeScript',
     },
     {
+      id: 7,
       name: 'repo 7',
-      desciption: 'descrição',
+      description: 'descrição',
       html_url: 'https://github.com/Leoodaviid/animate.css',
       language: 'shell',
     },
     {
+      id: 8,
       name: 'repo 8',
-      desciption: 'descrição',
+      description: 'descrição',
       html_url: 'https://github.com/Leoodaviid/animate.css',
       language: 'css',
     },
@@ -77,7 +85,7 @@ const Repositories = () => {
         <Filter languages={languages} />
       </Sidebar>
       <Main>
-        <Repository />
+        <Repository repositories={repositories} />
       </Main>
     </Container>
   )

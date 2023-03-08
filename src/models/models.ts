@@ -17,8 +17,9 @@ export interface LangColorsProps {
 }
 
 export interface RespositoriesProps {
+  id: number
   name: string
-  desciption: string
+  description: string
   html_url: string
   language: string
 }
