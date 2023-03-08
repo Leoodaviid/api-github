@@ -1,6 +1,6 @@
 // Login User
 export interface LoginUserProps {
-  user: string
+  userLogin: string
 }
 
 // User Props
@@ -13,6 +13,13 @@ export interface UserProps {
   company?: string | undefined
   blog: string
   location: string
+}
+
+//languages Props
+export interface LanguagesProps {
+  name: string
+  count: number
+  color?: string
 }
 
 // Colors
