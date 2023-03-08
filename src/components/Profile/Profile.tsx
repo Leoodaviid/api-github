@@ -1,20 +1,11 @@
 import { MdGroup, MdLocationCity, MdWork, MdLink } from 'react-icons/md'
+import { UserProps } from '../../models/models'
 import { Container, Header, Avatar, Login, Name, Inner, Data } from './styles'
 
-interface UserProps {
-  user: {
-    login: string
-    name: string
-    avatar_url: string
-    followers: number
-    following: number
-    company?: string | undefined
-    blog: string
-    location: string
-  }
+interface ProfileProps {
+  user: UserProps
 }
-
-export const Profile = ({ user }: UserProps) => {
+export const Profile = ({ user }: ProfileProps) => {
   return (
     <Container>
       <Header>

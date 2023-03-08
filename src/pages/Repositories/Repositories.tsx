@@ -3,13 +3,13 @@ import { Filter } from '../../components/Filter/Filter'
 import { Profile } from '../../components/Profile/Profile'
 import { Repository } from '../../components/Repository/Repository'
 import { Container, Sidebar, Main } from './styles'
-import { RespositoriesProps } from '../../models/models'
+import { RespositoriesProps, UserProps } from '../../models/models'
 import { getLangsFrom } from '../../services/mainApi/langRepositories'
 
 const Repositories = () => {
   const [currentLanguage, setCurrentLanguage] = useState<string>()
 
-  const user = {
+  const user: UserProps = {
     login: 'Leoodaviid',
     name: 'Leonardo David',
     avatar_url: 'https://avatars.githubusercontent.com/u/104696611?v=4',
