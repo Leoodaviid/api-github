@@ -18,21 +18,18 @@ export const Container = styled.main`
 export const Sidebar = styled.aside`
   background: ${({ theme }) => theme.colors.black};
   min-width: 20rem;
-  min-height: 100vh;
-  /* overflow-y: auto; */
+  max-height: 100vh;
 `
 
 export const Main = styled.section`
   width: 100%;
-  max-height: 100vh;
-  padding: 2rem;
+  max-height: calc(100vh - 3rem);
+  padding: 1.5rem;
   overflow-y: auto;
 
   @media screen and (max-width: ${({ theme }) => theme.breakPoints.md}) {
     width: auto;
     height: 100%;
-  }
-  @media screen and (max-width: ${({ theme }) => theme.breakPoints.sm}) {
     padding: 1rem;
   }
 `

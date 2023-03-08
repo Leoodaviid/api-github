@@ -31,7 +31,7 @@ export const Selector = styled.button`
   &.selected {
     background: ${(props) => props.color || props.theme.colors.gray300};
     color: ${(props) => (props.color ? props.theme.colors.white : props.theme.colors.black)};
-    transform: translateX(5px) scale(1.02);
+    transform: translateX(10px) scale(1.09);
   }
 
   @media screen and (max-width: ${({ theme }) => theme.breakPoints.md}) {
