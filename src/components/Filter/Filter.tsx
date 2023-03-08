@@ -1,7 +1,8 @@
+import { LanguagesProps } from '../../models/models'
 import { Container, Selector } from './styles'
 
 interface FilterLanguageProps {
-  languages: { name: string; count: number; color?: string }[]
+  languages: LanguagesProps[]
   currentLanguage?: string
   onClick: (name?: string) => void
 }
