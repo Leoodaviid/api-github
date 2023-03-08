@@ -1,1 +1,1 @@
-{ "/users/:login": "/users/:login", "/users/:login/repos": "/repos/:login" }
+{ "/users/:login": "/users/:login", "/users/:login/repos/*": "/repos/:login" }
