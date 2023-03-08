@@ -5,4 +5,4 @@ export const getUser = async (userLogin: LoginUserProps) =>
   baseApi.get<UserProps>(`users/${userLogin.userLogin}`)
 
 export const getRepos = async (userLogin: LoginUserProps) =>
-  baseApi.get(`/users/${userLogin.userLogin}/repos`)
+  baseApi.get(`users/${userLogin.userLogin}/repos`)
