@@ -1,6 +1,6 @@
 // Login User
 export interface LoginUserProps {
-  userLogin: string
+  userLogin?: string
 }
 
 // User Props
