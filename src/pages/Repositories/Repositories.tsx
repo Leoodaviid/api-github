@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Filter } from '../../components/Filter/Filter'
 import { Profile } from '../../components/Profile/Profile'
 import { Repository } from '../../components/Repository/Repository'
@@ -6,6 +7,8 @@ import { RespositoriesProps } from '../../models/models'
 import { getLangsFrom } from '../../services/langRepositories'
 
 const Repositories = () => {
+  const [currentLanguage, setCurrentLanguage] = useState<string>()
+
   const user = {
     login: 'Leoodaviid',
     name: 'Leonardo David',
@@ -78,11 +81,19 @@ const Repositories = () => {
 
   const languages = getLangsFrom(repositories)
 
+  const onFilterClick = (language?: string) => {
+    if (language === currentLanguage) {
+      setCurrentLanguage('')
+    } else {
+      setCurrentLanguage(language)
+    }
+  }
+
   return (
     <Container>
       <Sidebar>
         <Profile user={user} />
-        <Filter languages={languages} />
+        <Filter languages={languages} currentLanguage={currentLanguage} onClick={onFilterClick} />
       </Sidebar>
       <Main>
         <Repository repositories={repositories} />

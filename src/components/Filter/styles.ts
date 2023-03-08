@@ -25,9 +25,10 @@ export const Selector = styled.button`
   border-radius: 0 20px 20px 0;
   transition: background 0.3s, transform 0.3s;
   padding: 0 1rem;
+  cursor: pointer;
 
   &:hover,
-  &selected {
+  &.selected {
     background: ${(props) => props.color || props.theme.colors.gray300};
     color: ${(props) => (props.color ? props.theme.colors.white : props.theme.colors.black)};
     transform: translateX(5px) scale(1.02);
@@ -37,7 +38,7 @@ export const Selector = styled.button`
     border-radius: 20px;
 
     &:hover,
-    &selected {
+    &.selected {
       transform: translateX(0) scale(1.02);
     }
   }
