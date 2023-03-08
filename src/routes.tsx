@@ -7,7 +7,7 @@ export function AppRoutes() {
   return (
     <Routes>
       <Route path='/' element={<Main />} />
-      <Route path='/:user/repositories' element={<Repositories />}></Route>
+      <Route path='/:login/repositories' element={<Repositories />}></Route>
     </Routes>
   )
 }
