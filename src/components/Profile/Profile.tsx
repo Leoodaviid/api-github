@@ -1,31 +1,51 @@
 import { MdGroup, MdLocationCity, MdWork, MdLink } from 'react-icons/md'
 import { Container, Header, Avatar, Login, Name, Inner, Data } from './styles'
 
-export const Profile = () => {
+interface UserProps {
+  user: {
+    login: string
+    name: string
+    avatar_url: string
+    followers: number
+    following: number
+    company?: string | undefined
+    blog: string
+    location: string
+  }
+}
+
+export const Profile = ({ user }: UserProps) => {
   return (
     <Container>
       <Header>
-        <Avatar src='https://avatars.githubusercontent.com/u/104696611?v=4' />
-        <Login>Leoodaviid</Login>
-        <Name>Leonardo David</Name>
+        <Avatar src={user.avatar_url} />
+        <Login>{user.login}</Login>
+        <Name>{user.name}</Name>
       </Header>
       <Inner>
         <Data>
           <MdGroup size={20} />
-          30&nbsp;<i>seguidores</i>&nbsp;&middot;&nbsp;10&nbsp;<i>seguindo</i>
+          {user.following}&nbsp;<i>seguidores</i>&nbsp;&middot;&nbsp;1{user.followers}&nbsp;
+          <i>seguindo</i>
         </Data>
-        <Data>
-          <MdWork size={20} />
-          Minha companhia
-        </Data>
-        <Data>
-          <MdLocationCity size={20} />
-          Fortaleza - CE
-        </Data>
-        <Data>
-          <MdLink size={20} />
-          <a href=''>Meu portfolio</a>
-        </Data>
+        {user.company && (
+          <Data>
+            <MdWork size={20} />
+            {user.company}
+          </Data>
+        )}
+        {user.location && (
+          <Data>
+            <MdLocationCity size={20} />
+            {user.location}
+          </Data>
+        )}
+        {user.blog && (
+          <Data>
+            <MdLink size={20} />
+            <a href={`\\${user.blog}`}>{user.blog}</a>
+          </Data>
+        )}
       </Inner>
     </Container>
   )
