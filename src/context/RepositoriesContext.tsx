@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState, useEffect, Dispatch, SetStateAction } from 'react'
+import { createContext, ReactNode, useState, useEffect, useReducer } from 'react'
 import { LanguagesProps, RespositoriesProps, UserProps } from '../models/models'
 import { getLangsFrom } from '../services/mainApi/langRepositories'
 import { getRepos, getUser } from '../services/mainApi/user'
@@ -7,10 +7,35 @@ interface RepositoriesContextProps {
   user?: UserProps
   repositories: RespositoriesProps[]
   languages: LanguagesProps[]
-  setLogin: Dispatch<SetStateAction<string>>
-  login: string
+  login: State
+  dispatch: (action: Action) => void
   loading: boolean
   error: null | Error
+}
+export type State = {
+  login: string | undefined
+}
+
+type Action = {
+  type: FormActions
+  payload: string | undefined
+}
+
+export enum FormActions {
+  setLogin,
+}
+
+const initialData: State = {
+  login: '',
+}
+
+const formReducer = (state: State, action: Action) => {
+  switch (action.type) {
+    case FormActions.setLogin:
+      return { ...state, login: action.payload }
+    default:
+      return state
+  }
 }
 
 export const RepositoriesContext = createContext<RepositoriesContextProps>(
@@ -18,7 +43,7 @@ export const RepositoriesContext = createContext<RepositoriesContextProps>(
 )
 
 export const RepositoriesStorage = ({ children }: { children: ReactNode }) => {
-  const [login, setLogin] = useState<string>('')
+  const [login, dispatch] = useReducer(formReducer, initialData)
   const [user, setUser] = useState<UserProps>()
   const [repositories, setRepositories] = useState<RespositoriesProps[]>([])
   const [languages, setLanguages] = useState<LanguagesProps[]>([])
@@ -30,8 +55,8 @@ export const RepositoriesStorage = ({ children }: { children: ReactNode }) => {
       try {
         setError(null)
         setLoading(true)
-        const userRequest = await getUser({ userLogin: login })
-        const repositoriesRequest = await getRepos({ userLogin: login })
+        const userRequest = await getUser({ userLogin: login.login })
+        const repositoriesRequest = await getRepos({ userLogin: login.login })
         const request = [userRequest, repositoriesRequest]
         const [{ data: userResponse }, { data: repositoriesResponse }] = await Promise.all(request)
         setUser(userResponse)
@@ -48,7 +73,7 @@ export const RepositoriesStorage = ({ children }: { children: ReactNode }) => {
 
   return (
     <RepositoriesContext.Provider
-      value={{ user, repositories, languages, setLogin, login, loading, error }}
+      value={{ user, repositories, dispatch, login, languages, loading, error }}
     >
       {children}
     </RepositoriesContext.Provider>
