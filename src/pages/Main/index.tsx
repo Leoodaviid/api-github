@@ -1,11 +1,10 @@
 import { Container, Logo, Title, Form, Input, Button } from './styles'
-import { useState } from 'react'
 import { MdSearch } from 'react-icons/md'
 import GitHubLogo from '../../assets/icons/github-logo.svg'
+import { useRepo } from '../../hooks/useRepo'
 
 const Main = () => {
-  const [login, setLogin] = useState<string>()
-
+  const { setLogin, login } = useRepo()
   return (
     <Container>
       <Logo src={GitHubLogo} alt='Logo Api GitHub' />

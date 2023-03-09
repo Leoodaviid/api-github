@@ -1,40 +1,13 @@
-import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useState } from 'react'
 import { Filter } from '../../components/Filter/Filter'
 import { Profile } from '../../components/Profile/Profile'
 import { Repository } from '../../components/Repository/Repository'
+import { useRepo } from '../../hooks/useRepo'
 import { Loading, Container, Sidebar, Main } from './styles'
-import { LanguagesProps, RespositoriesProps, UserProps } from '../../models/models'
-import { getLangsFrom } from '../../services/mainApi/langRepositories'
-import { getRepos, getUser } from '../../services/mainApi/user'
 
 const Repositories = () => {
-  const { login } = useParams()
-  console.log(login)
-  const [user, setUser] = useState<UserProps>()
-  const [repositories, setRepositories] = useState<RespositoriesProps[]>([])
-  const [languages, setLanguages] = useState<LanguagesProps[]>([])
   const [currentLanguage, setCurrentLanguage] = useState<string>()
-  const [loading, setLoading] = useState<boolean>(true)
-
-  useEffect(() => {
-    ;(async () => {
-      try {
-        const userRequest = await getUser({ userLogin: login })
-        const repositoriesRequest = await getRepos({ userLogin: login })
-        const request = [userRequest, repositoriesRequest]
-        const [{ data: userResponse }, { data: repositoriesResponse }] = await Promise.all(request)
-        setUser(userResponse)
-        setRepositories(repositoriesResponse)
-        setLanguages(getLangsFrom(repositoriesResponse))
-        setLoading(false)
-      } catch (err) {
-        //..
-      } finally {
-        //..
-      }
-    })()
-  }, [])
+  const { user, repositories, languages, loading } = useRepo()
 
   const onFilterClick = (language?: string) => {
     if (language === currentLanguage) {
