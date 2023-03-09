@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -24,41 +23,31 @@ export const Form = styled.form`
   width: 100%;
   max-width: 583px;
 `
-export const Input = styled.input`
-  background: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.white};
-  width: 100%;
-  height: 64px;
-  line-height: 64px;
-  border: 1px solid ${({ theme }) => theme.colors.black};
-  border-radius: 0.25rem;
-  font-size: ${({ theme }) => theme.fontSize['2xl']};
-  margin-right: 24px;
-  padding: 0 1.5rem;
-  box-sizing: border-box;
 
-  &:focus {
-    outline: none;
-    border-color: ${({ theme }) => theme.colors.white};
-  }
-
-  &::placeholder {
-    color: ${({ theme }) => theme.colors.gray700};
-  }
-`
-export const Button = styled(Link)`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${({ theme }) => theme.colors.black};
-  color: ${({ theme }) => theme.colors.gray700};
-  width: 80px;
-  height: 64px;
-  border: 1px solid ${({ theme }) => theme.colors.black};
-  border-radius: 0.25rem;
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.colors.gray600};
+  width: 10%;
+  height: 50px;
+  border-radius: 0 0.25rem 0.25rem 0;
+
+  svg {
+    font-size: 42px;
+  }
 
   &:hover {
-    background: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.gray800};
+    svg {
+      color: ${({ theme }) => theme.colors.white};
+    }
+  }
+  @media screen and (max-width: ${({ theme }) => theme.breakPoints.sm}) {
+    height: 50px;
+    svg {
+      font-size: 30px;
+    }
   }
 `

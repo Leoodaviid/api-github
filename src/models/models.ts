@@ -1,6 +1,8 @@
+import { State } from '../context/RepositoriesContext'
+
 // Login User
 export interface LoginUserProps {
-  userLogin?: string
+  userLogin?: string | State
 }
 
 // User Props
