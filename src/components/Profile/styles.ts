@@ -13,6 +13,25 @@ export const Header = styled.div`
     align-items: center;
   }
 `
+export const Back = styled.button`
+  background: transparent;
+  color: ${({ theme }) => theme.colors.white};
+  border: none;
+  display: flex;
+  text-align: center;
+  gap: 0.2rem;
+  text-align: start;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.gray500};
+  }
+
+  svg {
+    font-size: 1.2rem;
+  }
+`
 export const Avatar = styled.img`
   align-self: center;
   border-radius: 50%;
