@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Filter } from '../../components/Filter/Filter'
 import { Profile } from '../../components/Profile/Profile'
 import { Repository } from '../../components/Repository/Repository'
@@ -6,8 +7,15 @@ import { useRepo } from '../../hooks/useRepo'
 import { Loading, Container, Sidebar, Main } from './styles'
 
 const Repositories = () => {
+  const navigate = useNavigate()
   const [currentLanguage, setCurrentLanguage] = useState<string>()
-  const { user, repositories, languages, loading } = useRepo()
+  const { user, repositories, languages, loading, login } = useRepo()
+
+  useEffect(() => {
+    if (login.login === '') {
+      navigate('/')
+    }
+  }, [])
 
   const onFilterClick = (language?: string) => {
     if (language === currentLanguage) {
