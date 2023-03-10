@@ -25,11 +25,11 @@ export const Profile = ({ user }: ProfileProps) => {
 
   return (
     <Container>
+      <Back onClick={handleBack}>
+        <MdArrowBack />
+        Voltar
+      </Back>
       <Header>
-        <Back onClick={handleBack}>
-          <MdArrowBack />
-          Voltar
-        </Back>
         <Avatar src={user?.avatar_url} />
         <Login>{user?.login}</Login>
         <Name>{user?.name}</Name>
