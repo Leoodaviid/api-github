@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Filter } from '../../components/Filter/Filter'
+import { Loading } from '../../components/Loading/Loading'
 import { Profile } from '../../components/Profile/Profile'
 import { Repository } from '../../components/Repository/Repository'
 import { useRepo } from '../../hooks/useRepo'
-import { Loading, Container, Sidebar, Main } from './styles'
+import { Container, Sidebar, Main } from './styles'
 
 const Repositories = () => {
   const navigate = useNavigate()
@@ -26,7 +27,7 @@ const Repositories = () => {
   }
 
   if (loading) {
-    return <Loading>Carregando...</Loading>
+    return <Loading />
   }
   return (
     <Container>
