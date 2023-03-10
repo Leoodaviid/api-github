@@ -6,11 +6,10 @@ export const Container = styled.div`
 
   input {
     display: block;
-    width: 100%;
-    padding: 0.2rem;
+    width: 99%;
     font-size: 2rem;
     border: none;
-    border-bottom: 2px solid ${({ theme }) => theme.colors.gray800};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.gray600};
     color: ${({ theme }) => theme.colors.white};
     outline: none;
     background-color: transparent;
