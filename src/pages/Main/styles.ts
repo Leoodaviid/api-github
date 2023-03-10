@@ -30,13 +30,15 @@ export const Button = styled.button`
   justify-content: center;
   background: none;
   border: none;
+  cursor: pointer;
   color: ${({ theme }) => theme.colors.gray600};
-  width: 10%;
+  width: 50px;
   height: 50px;
   border-radius: 0 0.25rem 0.25rem 0;
 
   svg {
     font-size: 42px;
+    color: ${({ theme }) => theme.colors.gray600};
   }
 
   &:hover {
@@ -47,7 +49,7 @@ export const Button = styled.button`
   @media screen and (max-width: ${({ theme }) => theme.breakPoints.sm}) {
     height: 50px;
     svg {
-      font-size: 30px;
+      font-size: 35px;
     }
   }
 `

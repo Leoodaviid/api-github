@@ -31,6 +31,9 @@ export const Back = styled.button`
   svg {
     font-size: 1.2rem;
   }
+  @media screen and (max-width: ${({ theme }) => theme.breakPoints.sm}) {
+    margin-top: 0.5rem;
+  }
 `
 export const Avatar = styled.img`
   align-self: center;
