@@ -12,7 +12,7 @@ interface ValidatorType {
 const validators: ValidatorType = {
   login: {
     regex: /.{3}/,
-    message: 'Campo deve conter mais de 3 caracteres',
+    message: 'O campo deve conter mais de 3 caracteres',
   },
 
   senha: {

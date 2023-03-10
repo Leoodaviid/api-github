@@ -1,7 +1,7 @@
 import { Err } from './styles'
 
 interface ErrorProps {
-  children?: string | null
+  children?: string | any | null
 }
 
 export const Error = ({ children }: ErrorProps) => {
