@@ -57,14 +57,16 @@ export const RepositoriesStorage = ({ children }: { children: ReactNode }) => {
         setLoading(true)
         const userRequest = await getUser({ userLogin: login.login })
         const repositoriesRequest = await getRepos({ userLogin: login.login })
+        if (userRequest.status !== 200 || repositoriesRequest.status !== 200)
+          throw new Error(`Error: ${userRequest.statusText}`)
         const request = [userRequest, repositoriesRequest]
         const [{ data: userResponse }, { data: repositoriesResponse }] = await Promise.all(request)
         setUser(userResponse)
         setRepositories(repositoriesResponse)
         setLanguages(getLangsFrom(repositoriesResponse))
         setLoading(false)
-      } catch (err) {
-        //..
+      } catch (err: any) {
+        setError(err.message)
       } finally {
         setLoading(false)
       }
