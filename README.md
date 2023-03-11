@@ -133,8 +133,6 @@ Isso iniciará o projeto em`http://localhost:3000`.
 └── tsconfig.json
 
 
-- `src/`: Contém todo o código do aplicativo, incluindo o arquivo principal `index.js` e vários componentes React e arquivos JavaScript.
-- `src/components/`: Contém componentes React individuais que compõem a interface do usuário do aplicativo.
 
 ```
 
@@ -144,7 +142,6 @@ Isso iniciará o projeto em`http://localhost:3000`.
 
 
 
-```
 - `public/`: Contém o arquivo index.html do aplicativo e quaisquer outros recursos estáticos.
 - `src/`: Contém todo o código do aplicativo, incluindo o arquivo `index.ts` principal e vários componentes React e arquivos TypeScript.
 - `src/components/`: Contém componentes React individuais que compõem a interface do usuário do aplicativo.
@@ -155,15 +152,12 @@ Isso iniciará o projeto em`http://localhost:3000`.
 - `src/services/`: Onde contém a configuração da api juntamente com os endpoints que foram utilizados.
 - `package.json`: Contém metadados sobre o projeto, incluindo suas dependências e scripts para criar e executar o aplicativo.
 
-```
-
 
 
 ## Detalhes e funções de alguns arquivos:
 
 
 
-```
 - `src/componentes/CarRepository/CardRepository.tsx`: O componente renderiza um contêiner que exibe o nome, a descrição, o idioma e um link para o repositório. O componente também usa uma função auxiliar languageColors para definir a cor do contêiner com base no idioma do repositório.
 
 - `src/components/Filter/Filter.tsx`: Esse componente possui três adereços:linguagens: uma matriz de objetos com propriedades nome, contagem e cor. Estes representam as diferentes linguagens de programação disponíveis para filtragem.
@@ -194,8 +188,6 @@ getRepos faz uma solicitação GET para o endpoint /users/:username/repos da API
 - `src/App.tsx`: Este é um componente funcional React que retorna o componente App principal. O componente envolve todo o aplicativo com o BrowserRouter da biblioteca react-router-dom, que fornece roteamento do lado do cliente. Ele também envolve o aplicativo com um componente Theme personalizado, que fornece ThemeProvider de componentes estilizados, permitindo a definição de variáveis CSS globais a serem aplicadas a todos os componentes de componentes estilizados. O componente também renderiza o componente AppRoutes, que define as rotas do aplicativo e aplica os componentes GlobalStyle e Normalize de styled-components e styled-normalize library, respectivamente, para normalizar estilos CSS em diferentes navegadores. Por fim, o componente envolve todo o aplicativo com um componente RepositoriesStorage personalizado, que fornece gerenciamento de estado ao aplicativo usando a API React Context.
 
 - `src/routes.tsx`: Código está sendo usado a biblioteca react-router-dom para definir as rotas do aplicativo. Ele é responsável por renderizar os componentes de rota apropriados com base no caminho de URL atual.
-
-```
 
 
 
